@@ -61,6 +61,7 @@ body {
 
 .weather {
     color: #fff;
+    display: none;
 }
 
 .weather .weather-icon {

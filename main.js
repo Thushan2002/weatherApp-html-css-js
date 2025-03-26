@@ -1,4 +1,5 @@
-const apiKey = "877b1583e21ff2f73e4eb9163a02abec";
+import API_KEY from "./api.js";
+
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
 const cityName = document.querySelector(".search input");
@@ -8,9 +9,13 @@ const weatherIcon = document.querySelector(".weather-icon");
 const checkWeather = async (city) => {
     try {
         // ✅ Append the city name to the API URL
-        const response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);
+        const response = await fetch(`${apiUrl}${city}&appid=${API_KEY}`);
 
-        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        if (response.status == 404) {
+            document.querySelector(".error").style.display = "block"
+        }
+
+        else if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const data = await response.json();
 

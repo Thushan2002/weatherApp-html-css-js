@@ -104,3 +104,11 @@ body {
     font-size: 28px;
     margin-top: -6px;
 }
+
+.error {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+    display: none;
+}
